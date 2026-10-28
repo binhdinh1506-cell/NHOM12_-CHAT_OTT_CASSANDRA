@@ -1,0 +1,19 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: ott-chat-nosql
+  cassandra:
+    contact-points: 127.0.0.1:9042
+    local-datacenter: datacenter1
+    keyspace-name: chat_ott
+    schema-action: none
+    request:
+      timeout: 5s
+
+app:
+  # true: tự nạp dữ liệu mẫu (5 user, 10 hội thoại x 200 tin nhắn) nếu chưa có.
+  # Chạy lại nhiều lần vẫn an toàn (bỏ qua hội thoại đã tồn tại).
+  seed: true
+  seed-messages-per-conversation: 200
